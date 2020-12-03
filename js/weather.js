@@ -9,6 +9,7 @@ function gettingJSON(){
     var location = document.querySelector("#location").value;
     
     if(document.querySelector("#location").value == ""){
+        //"Use “Ann Arbor” as the default value, not “Ann Arbor, US”"
         location = "Ann Arbor"
         console.log("Defaulting to Ann Arbor");
     }
@@ -55,7 +56,7 @@ function gettingJSON(){
     let loc;
     let temp;
     let tempImg;
-    
+
     // Your code here.
 
     $.getJSON(query,function(json){
@@ -74,8 +75,9 @@ function gettingJSON(){
         console.log(json) 
 
         loc = json.name;
+        country = json.sys.country;
         document.querySelector("#loc").innerHTML = loc;
-        console.log("loc: " + loc);
+        console.log("loc: " + loc + ", " + country);
 
         temp = json.main.temp;
         document.querySelector("#temp").innerHTML = temp;
@@ -84,6 +86,11 @@ function gettingJSON(){
         tempImg = json.weather[0].icon;
         document.querySelector("#tempImg").src = ("https://openweathermap.org/img/wn/" + tempImg + "@2x.png")
         console.log("tempImg: " + tempImg);
+
+        //"Add alternate text for accessibility"
+        description = json.weather[0].description;
+        document.querySelector("#tempImg").alt = description;
+        console.log("alt text: " + description);
         
     });
 };
