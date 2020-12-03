@@ -23,19 +23,23 @@ function gettingJSON(){
 
     //set default temperature format if one isn't provided
     var format;
+    var degrees;
     
     if(document.querySelector("#celcius").checked == true){
         format = "metric"
+        degrees = "Celsius"
     } 
     else if(document.querySelector("#fahrenheit").checked == true){
         format = "imperial"
+        degrees = "Fahrenheit"
     }
     else{
         format = "imperial"
+        degrees = "Fahrenheit"
     };
 
     // Your code here.
-    console.log("Format is:  " + format);
+    console.log("Format is:  " + format + " / " + degrees);
 
     //set the query  
     let query;
@@ -89,6 +93,7 @@ function gettingJSON(){
         //"Add alternate text for accessibility"
         description = json.weather[0].description;
         document.querySelector("#tempImg").alt = description;
+        document.querySelector("#tempImg").title = description;
         console.log("alt text: " + description);
         
     });
