@@ -1,3 +1,5 @@
+//Erika Kohl - ekohl@umich.edu
+
 function gettingJSON(){
     //Display the forecast
     // Your code here.
@@ -7,7 +9,6 @@ function gettingJSON(){
     var location = document.querySelector("#location").value;
     
     if(document.querySelector("#location").value == ""){
-        //location == document.querySelector("#location").value == "Ann Arbor"
         location = "Ann Arbor"
         console.log("Defaulting to Ann Arbor");
     }
@@ -18,7 +19,6 @@ function gettingJSON(){
     // Your code here
     //display the location
     document.querySelector("#loc").innerHTML = location;
-
     console.log("Location is : " + location);
 
     //set default temperature format if one isn't provided
@@ -55,6 +55,7 @@ function gettingJSON(){
     let loc;
     let temp;
     let tempImg;
+    
     // Your code here.
 
     $.getJSON(query,function(json){
