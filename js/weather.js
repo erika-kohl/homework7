@@ -11,7 +11,6 @@ function gettingJSON(){
     if(document.querySelector("#location").value == ""){
         //"Use “Ann Arbor” as the default value, not “Ann Arbor, US”"
         location = "Ann Arbor"
-        console.log("Defaulting to Ann Arbor");
     }
     else{
         location = document.querySelector("#location").value
